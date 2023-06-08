@@ -1,18 +1,21 @@
 package com.vipulbehl.customer;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Data
 @Builder
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Customer {
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
+public class Customer implements Serializable {
     @Id
     @SequenceGenerator(
             name = "customer_id_sequence",
